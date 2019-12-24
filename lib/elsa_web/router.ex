@@ -17,6 +17,7 @@ defmodule ElsaWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/measurements", MeasurementController, :index
   end
 
   # Other scopes may use custom stacks.
