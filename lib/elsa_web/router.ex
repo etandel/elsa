@@ -17,11 +17,12 @@ defmodule ElsaWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    get "/measurements", MeasurementController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ElsaWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", ElsaWeb do
+    pipe_through :api
+
+    resources "/measurements", MeasurementController, except: [:new, :edit]
+   end
 end
